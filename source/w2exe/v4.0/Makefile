@@ -1,7 +1,4 @@
-# http://w2forum.cee.pdx.edu/?q=node/500
-# https://www.dropbox.com/sh/xg1c73zglxu8g3m/AACJdxscP_anY3Snmxwxyy1Ta?dl=0
-
-objects = w2modules.o w2_371_gen.o input.o balances.o date.o density.o endsimulation.o gas-transfer.o gate-spill-pipe.o \
+objects = w2modules_par.o w2_371_gen.o input.o balances.o date.o density.o endsimulation.o gas-transfer.o gate-spill-pipe.o \
 	heat-exchange.o hydroinout.o init-cond.o init-geom.o init.o layeraddsub.o \
 	macrophyte-aux.o output.o outputa.o outputinit.o restart.o shading.o tdg.o temperature.o \
 	time-varying-data.o transport.o update.o az.o \
@@ -11,8 +8,8 @@ FFLAGS = -c -gstabs+
 # compiler choices = ifort f95 gfortran
 fcompiler = /opt/intel/bin/ifort
 cequalw2: $(objects) $(fcompiler) -o cequalw2 $(objects) 
-w2modules.o: w2modules.F90 
-	$(fcompiler) $(FFLAGS) w2modules.F90 
+w2modules_par.o: w2modules_par.f90 
+	$(fcompiler) $(FFLAGS) w2modules_par.f90 
 w2_371_gen.o: w2_371_gen.f90 
 	$(fcompiler) $(FFLAGS) w2_371_gen.f90 
 input.o: input.f90 
