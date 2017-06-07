@@ -9,7 +9,7 @@ objects = w2modules.o w2_371_gen.o input.o balances.o date.o density.o endsimula
 #FFLAGS = -ffree-line-length-huge -ftrace=full -fzero -c -gstabs+ 
 FFLAGS = -c -gstabs+ 
 # compiler choices = ifort f95 gfortran
-fcompiler = gfortran
+fcompiler = /opt/intel/bin/ifort
 cequalw2: $(objects) $(fcompiler) -o cequalw2 $(objects) 
 w2modules.o: w2modules.F90 
 	$(fcompiler) $(FFLAGS) w2modules.F90 
