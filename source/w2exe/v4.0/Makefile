@@ -4,12 +4,12 @@ objects = w2modules_par.o w2_371_gen.o input.o balances.o date.o density.o endsi
 	time-varying-data.o transport.o update.o az.o \
 	water-quality.o waterbody.o withdrawal.o wqconstituents.o 
 #FFLAGS = -ffree-line-length-huge -ftrace=full -fzero -c -gstabs+ 
-FFLAGS = -c -gstabs+ 
+FFLAGS = -c
 # compiler choices = ifort f95 gfortran
 fcompiler = /opt/intel/bin/ifort
 cequalw2: $(objects) $(fcompiler) -o cequalw2 $(objects) 
-w2modules_par.o: w2modules_par.f90 
-	$(fcompiler) $(FFLAGS) w2modules_par.f90 
+w2modules_par.o: w2modules.F90 
+	$(fcompiler) $(FFLAGS) w2modules.F90 
 w2_371_gen.o: w2_371_gen.f90 
 	$(fcompiler) $(FFLAGS) w2_371_gen.f90 
 input.o: input.f90 
